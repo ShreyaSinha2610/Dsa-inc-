@@ -1,0 +1,34 @@
+A square matrix is said to be an X-Matrix if both of the following conditions hold:
+
+All the elements in the diagonals of the matrix are non-zero.
+All other elements are 0.
+Given a 2D integer array grid of size n x n representing a square matrix, return true if grid is an X-Matrix. Otherwise, return false.
+
+Soln
+
+class Solution {
+public:
+    bool checkXMatrix(vector<vector<int>>& grid) {
+        // Traverse till the end of the matrix
+        for(int i = 0; i<grid.size(); i++){
+            for(int j = 0; j<grid[i].size(); j++){
+//checking the condition 1 whether both are diagonal elements are 0 or not; if it not then it will give output as true
+                if((i==j || i+j == grid.size()-1)){
+                    if(grid[i][j] == 0){
+                        return false;
+                    }
+                }
+//Checking for non diagonal elements to be 0
+
+                else if((i!=j || i+j != grid.size()-1)){
+                    if(grid[i][j] != 0){
+                        return false;
+                    }
+                }
+            }
+        }
+        
+        return true;
+    }
+};
+
