@@ -1,0 +1,35 @@
+https://leetcode.com/problems/sort-even-and-odd-indices-independently/description/
+
+class Solution {
+public:
+    vector<int> sortEvenOdd(vector<int>& nums) {
+        vector<int> odd, even;
+        for(int i = 0; i<nums.size(); i++){
+            if(i % 2  ){
+                odd.push_back(nums[i]);
+
+            }
+            else{
+                even.push_back(nums[i]);
+
+            }
+        }
+//sort and reverse the odd indices values
+        sort(odd.begin() , odd.end());
+        reverse(odd.begin() , odd.end());
+//As we just have to sort the even indices element.
+        sort(even.begin() , even.end());
+        int odd1 = 0;
+        int even1 = 0;
+        for(int i = 0; i<nums.size(); i++){
+            if(i%2 ){
+                nums[i] = odd[odd1++];
+            }
+            else{
+                nums[i] = even[even1++];
+            }
+        }
+        
+    return nums;
+    }
+};
