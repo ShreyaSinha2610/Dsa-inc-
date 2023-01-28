@@ -1,0 +1,30 @@
+https://leetcode.com/problems/find-greatest-common-divisor-of-array/description/
+
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        // int min = INT_MIN;
+        // int max = INT_MAX;
+        // for(int i =0; i<nums.size(); i++){
+            int min = *min_element(nums.begin() , nums.end());
+            int max = *max_element(nums.begin(), nums.end());
+            int ans;
+            
+            for(int i=1;i<=min && i<=max;i++){
+                if(max%i==0 && min%i==0){
+                    ans=i;
+                }
+            }
+
+            return ans;
+    }
+};
+
+        
+           
+       
+    
+
+                
+                
+       
