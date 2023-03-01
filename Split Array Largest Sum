@@ -1,0 +1,45 @@
+class Solution {
+public:
+    bool isPossible(vector<int>& nums, int k, int mid){
+        int student = 1;
+        int pg = 0;
+        for(int i = 0; i<nums.size(); i++){
+            if(pg + nums[i] <= mid){
+                pg = pg+nums[i];
+            }
+            else{
+                student++;
+                if(student>k || nums[i] > mid){
+                    return false;
+                    
+                }
+                pg = nums[i];
+            }
+        }
+        return true;
+    }
+    int splitArray(vector<int>& nums, int k) {
+        int start = 0;
+        int ans = -1;
+        int sum = 0;
+        for(int i = 0; i<nums.size(); i++){
+            sum = sum + nums[i];
+        
+
+        }
+        int end = sum;
+        int mid = start + (end-start)/2;
+        while(start<=end){
+            if(isPossible(nums,k,mid)){
+                ans = mid;
+                end = mid-1;
+            }
+            else{
+                start = mid+1;
+            }
+            mid = start + (end-start)/2;
+        }
+        return ans;
+        
+    }
+};
